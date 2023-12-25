@@ -4,11 +4,11 @@ const server = http.createServer((req, res) => {
   if (req.url === "/") {
     res.write("<h1> HI!! </h1>");
     res.statusCode = 200;
-    res.end;
+    res.end();
   } else {
     res.write("<h1>404 not found</h1>");
     res.statusCode = 200;
-    res.end;
+    res.end();
   }
 });
 
