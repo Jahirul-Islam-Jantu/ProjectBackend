@@ -2,7 +2,7 @@ const express = require("express");
 
 const app = express();
 
-app.get("hello", (req, res, next) => {
+app.get("/hello", (req, res, next) => {
   res.json({
     message: "Hello",
   });
