@@ -4,6 +4,7 @@ const { errorHandler, notFoundHandler } = require("./error");
 
 const app = express();
 
+app.use(require("../test/test"));
 app.use(require("./middleware"));
 app.use(require("./routs"));
 app.use(notFoundHandler);
