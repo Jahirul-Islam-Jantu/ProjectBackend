@@ -74,10 +74,36 @@ class MyDB {
   }
   /**
    *
+   * @param {string} username
+   * @param {string} ticketBody
+   * @returns {Ticket}
+   */
+  updateByUsername(userName, ticketBody) {
+    const ticket = this.findByUsername(userName);
+    ticket.username = ticketBody.username ?? ticket.username;
+    ticket.updatedAt = new Date();
+
+    return ticket;
+  }
+  /**
+   *
    * @param {string} ticketId
    */
-  deleteTicket(ticketId) {
+  deleteById(ticketId) {
     const index = this.tickets.findIndex((ticket) => ticket.id === ticketId);
+
+    if (index !== -1) {
+      this.tickets.splice(index, 1);
+      return true;
+    } else {
+      return false;
+    }
+  }
+  deleteByUsername(userName) {
+    const index = this.tickets.findIndex(
+      (ticket) => ticket.username === userName
+    );
+
     if (index !== -1) {
       this.tickets.splice(index, 1);
       return true;
