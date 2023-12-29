@@ -17,11 +17,13 @@
 
 # Routes:
 
-- /Tickets/sell -create tickets
-- /Tickets - find all tickets
 - /Tickets/t/:ticketId GET find single ticket
 - /Tickets/t/:ticketId PATCH update ticket by id
 - /Tickets/t/:ticketId delete ticket by id
 - /Tickets/u/:username GET find tickets for a given user
 - /Tickets/u/:username PATCH update ticket for a given user
 - /Tickets/u/:username delete ticket for a given user
+- /Tickets/sell -create tickets
+- /Tickets/bulk -bulk sell tickets
+- /Tickets/draw
+- /Tickets - find all tickets
