@@ -30,12 +30,25 @@ router.get("/u/:username", (req, res) => {
 //   const updateTicket = db.updateByUsername(username);
 //   res.status(201).json("Successfully updated data", updateTicket);
 // });
-// router.delete("/u/:username", (res, req) => {
+// router.delete("/u/:username", (req, res) => {
 //   const username = req.params.username;
 //   db.deleteByUsername(username);
 //   res.status(203).send();
 // });
-
+router.patch('/u/:username', (req, res) => {
+  const username = req.params.username;
+  const updatedTicket = db.updateByUserName(username, req.body);
+  res
+    .status(200)
+    .json({ message: 'update Successfully by username', updatedTicket });
+});
+router.delete('/u/:username', (req, res) => {
+  const username = req.params.username;
+  const deletedTickets = db.deleteByUserName(username);
+  res
+    .status(203)
+    .json({ message: 'Deleted Successfully by username', deletedTickets });
+});
 router.post("/sell", (req, res) => {
   const { username, price } = req.body;
   const ticket = db.create(username, price);

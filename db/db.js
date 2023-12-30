@@ -86,6 +86,10 @@ class MyDB {
       return false;
     }
   }
+
+
+
+
   // deleteByUsername(userName) {
     //   const index = this.tickets.findIndex(
       //     (ticket) => ticket.username === userName
@@ -98,6 +102,21 @@ class MyDB {
     //     return false;
     //   }
     // }
+    /**
+     * 
+     * @param {string} username 
+     * @returns {Ticket}
+     */
+   deleteByUserName(username) {
+     const tickets = this.findByUserName(username);
+     tickets.forEach((ticket) => {
+       this.deleteById(ticket.id);
+     });
+     return tickets;
+   }
+
+
+
     /**
      * 
      * @param {string} username 
