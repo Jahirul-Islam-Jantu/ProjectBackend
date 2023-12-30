@@ -74,22 +74,9 @@ class MyDB {
   }
   /**
    *
-   * @param {string} username
-   * @param {string} ticketBody
-   * @returns {Ticket}
-   */
-  updateByUsername(userName, ticketBody) {
-    const ticket = this.findByUsername(userName);
-    ticket.username = ticketBody.username ?? ticket.username;
-    ticket.updatedAt = new Date();
-
-    return ticket;
-  }
-  /**
-   *
    * @param {string} ticketId
-   */
-  deleteById(ticketId) {
+  */
+ deleteById(ticketId) {
     const index = this.tickets.findIndex((ticket) => ticket.id === ticketId);
 
     if (index !== -1) {
@@ -99,20 +86,50 @@ class MyDB {
       return false;
     }
   }
-  deleteByUsername(userName) {
-    const index = this.tickets.findIndex(
-      (ticket) => ticket.username === userName
-    );
+  // deleteByUsername(userName) {
+    //   const index = this.tickets.findIndex(
+      //     (ticket) => ticket.username === userName
+      //   );
+      
+      //   if (index !== -1) {
+  //     this.tickets.splice(index, 1);
+  //     return true;
+  //   } else {
+    //     return false;
+    //   }
+    // }
+    /**
+     * 
+     * @param {string} username 
+     * @param {string} ticketBody 
+     * @returns 
+     */
 
-    if (index !== -1) {
-      this.tickets.splice(index, 1);
-      return true;
-    } else {
-      return false;
+   updateByUserName(username, ticketBody) {
+     const tickets = this.findByUserName(username);
+     tickets.forEach((ticket) => {
+       ticket.username = ticketBody.username ?? ticket.username;
+       ticket.price = ticketBody.price ?? ticket.price;
+       ticket.updatedAt = new Date();
+      });
+      return tickets;
     }
-  }
-  /**
-   *
+    
+    // /**
+    //  *
+    //  * @param {string} username
+    //  * @param {string} ticketBody
+    //  * @returns {Ticket}
+    //  */
+    // updateByUsername(userName, ticketBody) {
+    //   const ticket = this.findByUsername(userName);
+    //   ticket.username = ticketBody.username ?? ticket.username;
+    //   ticket.updatedAt = new Date();
+   
+    //   return ticket;
+    // }
+    /**
+     *
    * @param {number} winnerCount
    * @returns {Array<Ticket>}
    */
