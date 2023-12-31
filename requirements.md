@@ -27,3 +27,5 @@
 - /Tickets/bulk -bulk sell tickets
 - /Tickets/draw
 - /Tickets - find all tickets
+
+This is the requirement for only backend. we did not designed any front side of this app.
