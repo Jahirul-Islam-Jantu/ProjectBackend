@@ -714,9 +714,7 @@ module.exports = app;
 
 এই লেকচারের সমস্ত রিসোর্স [লেকচার ১৬](../../resources/lecture-16/README.md) এ পাবেন।
 
-## Source Code
 
-এই লেকচারের সোর্স কোডসমূহ এই [লিংক](../../src/lecture-16/) এ পাবেন।
 
 
 
